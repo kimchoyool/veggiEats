@@ -1,0 +1,199 @@
+@charset "UTF-8";
+#contents_join{
+	width: 700px;
+	margin: 0 auto;
+}
+#join_word{
+    width: 300px;
+    margin: 30px auto;
+    font-size: 25px;
+    text-align: center;
+}
+#join_inner{
+    width: 700px;
+}
+#join_must{
+    text-align: right;
+}
+.must{
+    color: #ff5f2e;
+    font-size: 10px;
+    vertical-align: super;
+}
+#join_detailed{
+    border-top: 3px solid #00660e;
+    padding: 15px 35px ;
+}
+.join_div label,input,button{
+    font-size: 20px;
+}
+#join_detailed .join_div{
+    display: inline-flex;
+    
+}
+#join_detailed div label{
+    width: 130px;
+}
+.join_div div input{ 
+    width: 100%;
+    height: 50px;
+    font-family: Pretendard-Regular;
+    margin-left: 5px;
+    border: 2px solid #e6e6e6; /*클릭하면 border색 변경 #00660e*/
+    border-radius: 5px;
+    padding: 2px 10px 2px 15px;
+}
+.join_div div input::placeholder{
+    font-size: 18px;
+    font-weight: 600;
+}
+.join_div div input:focus{
+    outline: none;
+    border-color: #00660e;
+}
+
+#join_detailed div button{
+    font-size: 18px;
+    width: 120px;
+    height: 45px;
+    background: white;
+    border: 2px solid #00660e;
+    border-radius: 5px;
+    font-family: Pretendard-Regular;
+    cursor: pointer;
+    
+    transition: background 0.3s ease-in-out,
+				color 0.3s ease-in-out;
+}
+#join_detailed div button:hover{
+	background: #00660e;
+	color: white;
+	
+}
+.join_div{
+    margin-top: 10px;
+    align-items: center;
+}
+.join_div div{
+    width: 350px;
+    height: 50px;
+    margin-right: 15px;
+    align-items: center;
+}
+.warning{ 
+    display: none; /* 입력시 block으로 표시되게 하기 */
+    clear: both;
+    content: "";
+    width: 380px;
+    margin-left: 140px;
+    margin-top: 5px;
+    color: red;
+}
+#phone_button{
+    color: #e6e6e6;
+}
+#join_bday div{
+    align-items: center;
+    padding-left: 40px;
+    border: 2px solid #e6e6e6;
+    border-radius: 5px;
+    width: 345px;
+    margin-left: 5px;
+}
+#join_bday div input{
+    width: 75px;
+    height: 45px;
+    font-family: Pretendard-Regular;
+    text-align: center;
+    border-style: none;
+}
+#join_bday div span{
+    color: #e6e6e6;
+}
+#terms{
+    border-top: 3px solid #00660e;
+    padding: 15px 35px ;
+}
+#terms div{
+    display: inline-flex;
+    
+}
+#terms label{
+    font-size: 20px;
+    width: 130px;
+    margin-right: 15px;
+}
+#terms_inner{
+    display: flex;
+    flex-direction: column;
+    width: 350px; /* 폰트 적용 안되서 수정한 부분 */
+}
+#terms_inner label{
+    width: 350px; /* 폰트 적용 안되서 수정한 부분 원래 300px */
+    margin-bottom: 10px;
+}
+#terms_inner label:first-child{
+    font-size: 25px;
+}
+#terms_inner input{ /*체크박스 아이콘 변경*/
+    margin-right: 10px;
+}
+#middot{
+    font-family: Pretendard-Regular;
+}
+
+#join_btn{
+    clear: both;
+    text-align: center;
+    margin-bottom: 20px;
+}
+#join_btn button{
+    background: rgba(0, 102, 14,0.4);
+    width: 200px;
+    height: 50px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    
+    transition: background 0.3s ease-in-out,
+				color 0.3s ease-in-out;
+}
+#join_btn button:hover{
+	background: rgb(0, 102, 14);
+}
+
+
+/*          회원가입 이전 개인/기업 회원가입 선택 창         */
+#contents_join_btn{
+    width: 700px;
+    margin: 0 auto;
+}
+#contents_join_btn div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#contents_join_btn div div{
+    text-align: center;
+    margin-right: 50px;
+
+}
+#contents_join_btn div button{
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    font-family: Pretendard-Regular;
+    margin: 50px 0;
+    background: white;
+    border-radius: 50px;
+    border: 2px solid rgba(0,102,14,1);
+    /*box-shadow: 0 0 5px #333;*/
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 8px;
+    transition: background 0.3s ease-in-out,
+				color 0.3s ease-in-out;
+}
+#contents_join_btn div button:hover{ /*자연스러운 애니메이션 주기 */
+    background: rgba(0,102,14,1);
+    color: white;
+}

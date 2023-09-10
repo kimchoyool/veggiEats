@@ -1,0 +1,104 @@
+@charset "UTF-8";
+#contents_board{
+	width: 700px;
+	margin: 10px auto;
+    /* display: flex; */
+    justify-content: center;
+}
+#contents_board table{
+	/* border: 2px solid black; */
+	border-collapse: collapse;
+	text-align: center;
+	font-size: 20px;
+}
+#contents_board table tr{
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+}
+#contents_board table th:nth-child(-n+3){
+	border-right: 1px solid #e6e6e6;
+}
+#contents_board table td:nth-child(-n+3){
+	border-right: 1px solid #e6e6e6;
+}
+#contents_board table th{
+	background: rgba(0,102,14,0.8);
+	color: white;
+}
+#contents_board th:first-child{
+	width: 80px;
+}
+#contents_board th:nth-child(2),th:last-child {
+	width: 120px;
+}
+#contents_board th:nth-child(3) {
+	width: 400px;
+}
+/*게시판 목록*/
+.btn_board {
+	width: 80px; height: 30px;
+	font-family: Pretendard-Regular;
+	background: rgba(0,102,14,0.8);
+	border-radius: 5px;
+	border: 2px solid white;
+	cursor: pointer;
+	color: white;
+	
+	transition: background 0.3s ease-in-out,
+				color 0.3s ease-in-out;
+}
+.btn_board:hover{
+	background: white;
+	color: #00660e;
+}
+
+/*게시판 글쓰기*/
+#write{
+	width: 700px;
+	
+}
+#write input, textarea {
+	width: 100%;
+}
+#write input{
+	height: 30px;
+}
+#write input:focus{
+	outline: none;
+}
+#write textarea {
+	font-family: Pretendard-Regular;
+	height: 700px;
+	border: none;
+	resize: none;
+}
+#write textarea:focus{
+	outline: none;
+}
+#write button{
+	width: 120px; height: 30px;
+	font-family: Pretendard-Regular;
+	background: rgba(0,102,14,0.8);
+	border-radius: 5px;
+	border: 2px solid white;
+	cursor: pointer;
+	color: white;
+	
+	transition: background 0.3s ease-in-out,
+				color 0.3s ease-in-out;
+}
+#write button:hover{
+	background: white;
+	color: #00660e;
+}
+
+/* 특정 게시글 */
+#content{
+	width: 700px;
+}
+#content tr:nth-child(4) {
+	height: 500px;
+}
+#content th {
+	vertical-align: middle
+}

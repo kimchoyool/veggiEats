@@ -1,0 +1,119 @@
+@charset "UTF-8";
+#contents_myPage{
+	width: 700px;
+	margin: 10px auto;
+    display: flex;
+    justify-content: center;
+}
+#side{
+    width: 120px; /*150px*/
+    height: 200px; /*180px*/
+    border-right: 2px solid #00660e;
+    border-left: 2px solid #00660e;
+    padding: 20px 10px;
+} 
+#side_nav li{
+    /*font-size: 17px;*/
+    margin-bottom: 10px;
+}
+#side_nav a:hover {
+    color: #ff5f2e;
+    text-shadow: 2px 2px 2px #e6e6e6;
+}
+
+#main{
+    width: 550px;
+    margin-left: 10px;
+}
+.section{
+    width: 100%;
+    padding-top: 20px ;
+}
+.section p{
+    font-size: 20px;
+}
+.section p a{
+    font-size: 15px;
+}
+.section div{
+    border-top: 2px solid #00660e;
+}
+.my_page, .info, .my_reservation{
+    text-align: center;
+    margin: 10px auto 0 auto;
+    border-collapse: separate;
+    border-spacing: 0 5px;
+}
+
+.my_page tr:first-child{
+    background: rgba(0, 102, 14, 0.4);
+    font-size: 18px;
+}
+.my_page th:first-child{
+    width: 100px;
+}
+.my_page th:nth-child(2){
+    width: 230px;
+}
+.my_page th:nth-child(3){
+    width: 100px;
+}
+.my_page th:nth-child(4){
+    width: 100px;
+}
+.info tr{
+	margin: 0 auto;
+	height: 30px;
+}
+.info th{
+	background: rgba(0, 102, 14, 0.4);
+	font-size: 18px;
+	width: 90px;
+	padding-top: 6px;
+}
+.info td:nth-child(2) {
+	width: 150px;
+	border-bottom: 2px solid #00660e;
+	padding-top: 6px;
+}
+.info button{
+	width: 50px;
+	background: white;
+	border: 1px solid #00660e;
+	border-radius: 30px;
+	cursor: pointer;
+}
+.info td button:hover {
+	background: #00660e;
+	color: white;
+}
+#out{
+	color: gray;
+}
+
+/*my_reservation.jsp 원래 550 530*/
+.my_reservation tr{
+	border-spacing: 0 5px;
+}
+.my_reservation tr td{
+	border-bottom: 1px solid black;
+}
+.my_reservation tr:first-child{
+    background: rgba(0, 102, 14, 0.4);
+    font-size: 18px;
+}
+.my_reservation th:first-child{
+    width: 100px;
+}
+.my_reservation th:nth-child(2){
+    width: 80px;
+}
+.my_reservation th:nth-child(3){
+    width: 130px;
+}
+.my_reservation th:nth-child(4){
+    width: 100px;
+}
+.my_reservation th:nth-child(5){
+    width: 100px;
+}

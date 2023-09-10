@@ -1,0 +1,213 @@
+@charset "UTF-8";
+@media screen and (max-width:768px){
+	body{width: 768px;}
+	.inner{
+		width: 750px;
+		margin: 0 auto;
+		justify-content: center;
+		align-items: center;
+		display: flex;
+	}
+
+	/* #logo{} */
+	#logo img{
+		width: 250px;
+		margin: 0 auto;
+		margin-left: -30px;
+	}
+	#search{
+		width: 200px; height: 40px;
+		/* margin: 0; */
+		position: relative;
+	}
+	#search_bar{
+		height: 35px; width: 100%;
+		border: 1px solid #00660e;
+		border-radius: 30px;
+		position: absolute;
+	}
+	svg{
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	}
+	svg::after{position: static;}
+
+	#top_nav{margin-left: 30px;}
+	#top_nav_inner li{margin-bottom: 3px;}
+	#top_nav_inner a:hover{
+		color: #ff5f2e;
+		text-shadow: 2px 2px 2px #e6e6e6;
+	}
+	#main_nav{
+		border-bottom: #e6e6e6 1px solid;
+		margin-top: -10px;
+	}
+	.mnav li{
+		width: 100px;
+		text-align: center;
+		display: inline-block;
+		position: relative;
+	}
+	.mnav_list{
+		margin: 0 30px;
+	}
+	.mnav_list:first-child{
+		margin-left: 40px;
+	}
+	.mnav a{
+		display: block;
+		padding: 10px 0;
+		font-size: 20px;
+	}
+	.mnav a:hover {
+		color: #00660e;
+		text-shadow: 2px 2px 2px #e6e6e6;
+	}
+	.mnav li:hover .sub_menu {
+		display: block;
+	}
+	.sub_menu li:hover{
+		background: rgba(0,102,14,0.3);
+	}
+	.sub_menu{
+		display: none;
+		position: absolute;
+		background: #fff;
+		z-index: 2;
+	}
+	.sub_menu li{
+		border: #e6e6e6 1px solid;
+		background: #fff;
+		box-shadow: 2px 2px 2 #e6e6e6 inset;
+		transition: background 0.3s ease-in-out;
+	}
+	.sub_menu li a, .sub_menu_sub li a{
+		font-family: Pretendard-Regular;
+		font-size: 15px;
+		font-weight: bolder;
+	}
+
+	.sub_menu_sub{
+		display: none;
+		position: absolute;
+		background: #fff;
+		z-index: 4;
+		margin-left: 99px;
+		margin-top: -35.5px;
+	}
+	.sub_menu_sub li{
+		width: 150px;
+		transition: background 0.3s ease-in-out;
+	}
+	#seoul:hover .seoul{
+		display: block;
+	}
+	#kyungin:hover .kyungin{
+		display: block;
+	}
+	#deachung:hover .deachung{
+		display: block;
+	}
+	#deakyung:hover .deakyung{
+		display: block;
+	}
+	#bukyung:hover .bukyung{
+		display: block;
+	}
+	#gkangjeon:hover .gkangjeon{
+		display: block;
+	}
+
+	main{
+		width: 750px;
+		margin: 0 auto; 
+		/*border: 1px solid #e6e6e6;*/
+	}
+	#contents{margin: 0 auto;}
+	/*#banner{
+		width: 750px;
+		height: 300px;
+		border: 1px solid #e6e6e6;
+		margin: 10px auto;
+	}
+	#banner h3{text-align: center;}*/
+
+	.swiper-container{
+        width: 750px; /* 확인*/
+        margin: 0 auto;
+        position: relative;
+    }
+    .swiper-slide img{
+        vertical-align: top;
+        width: 100%;
+    }
+    .swiper-pagination{
+        position: absolute;
+        left:0;
+        bottom: 3%;
+        z-index: 1;
+        text-align: center;
+    }
+	.swiper-pagination-bullet { /* 크기는 swiper.min.css에서 width,height 변경함*/
+		background: white;
+		border: 1px solid #00660e;
+		opacity: 1;
+	}
+    .arrow img{
+        position: absolute;
+        top: 50%;
+        z-index: 100;
+        line-height: 1;
+        margin-top: -20px;
+        padding: 10px;
+        cursor: pointer;
+    }
+    .prev img{
+        left: 20px;
+    }
+	.next img{
+        right: 20px;
+    }
+	#main_shops h2{
+		text-align: center;
+		font-size: 30px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	#main_shops{
+		width: 750px; 
+		position: relative;
+		margin: 0 auto;
+	}
+	#shops_fav{
+		width: 750px;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, 249px);
+		gap: 10px 1px; 
+	}
+	.shops{
+		width: 249px; height: 300px;
+		margin-bottom: 15px;
+		border: 1px solid #e6e6e6;
+	}
+	.shops div img{
+		width: 249px;
+		height: 249px;
+	}
+
+	.shops div,h3{
+		text-align: center;
+		vertical-align: bottom;
+	}
+	#footer{
+		height: 50px;
+		clear: both;
+		border-top: 1px solid #e6e6e6;
+	}
+	#footer_info{
+		text-align: center;
+		color: lightgray; 
+		margin-top: 15px;
+	}
+}

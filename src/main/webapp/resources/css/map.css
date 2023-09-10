@@ -1,0 +1,50 @@
+@charset "UTF-8";
+#contents_map{
+	width: 1050px;
+	margin: 0 auto;
+	/* display: flex; */
+	position: relative;
+
+	/* border: 1px solid #e6e6e6; */
+}
+/* #contents_map::after{
+	content: "";
+	display: block;
+} */
+
+#map{
+	width: 700px;
+	height: 500px;
+	margin: 0 auto;
+
+	text-align: center;
+	border: 1px solid #e6e6e6;
+}
+
+#map_shops{
+	width: 700px;
+	margin: 0 auto; 
+}
+.map_shop{
+	width: 700px;
+	height: 150px;
+	margin: 10px auto;
+	display: flex;
+}
+
+.map_shop div{
+	width: 500px;
+	margin-left: 20px;
+}
+
+
+#div_up_arrow{
+	bottom: 10px;
+	position: sticky;
+	
+}
+#up_arrow{
+	width: 50px;
+	height: 50px;
+	margin-left: 85%;
+}

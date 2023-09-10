@@ -1,0 +1,264 @@
+@charset "UTF-8";
+#contents_d{
+	width: 1050px;
+	margin: 0 auto;
+	display: flex;
+	position: relative;
+
+	/* border: 1px solid #e6e6e6; */
+}
+#contents_d::after{
+	content: "";
+	display: block;
+}
+
+#detailed{
+	width: 650px; /* height: 1700px; */
+	float: left;
+	margin-right: 50px;
+	/*position: relative; static;*/
+	/*display: inline-block; 안됨*/
+
+	/* border: 1px solid #e6e6e6; */
+}
+.info{
+	width: 650px;
+}
+#shop_info{
+	/* height: 800px; */
+	clear: both;
+
+	/* border: 1px solid #e6e6e6; */
+}
+#shop_images{
+	height: 300px;
+	/*border: 1px solid #e6e6e6;*/
+	text-align: center;
+
+}
+.shop_common{
+	height: 40px;
+	padding: 5px 10px;
+}
+.shop_common img{
+	height: 25px;
+	cursor: pointer;
+}
+#shop_title{
+	height: 70px;
+	border: 1px solid #e6e6e6;
+	font-size: 18px;
+}
+.info_list{
+	height: 50px;
+
+	/*border: 1px solid #e6e6e6;*/
+}
+.info_list ul{
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 150px);
+	gap: 10px 16px;
+}
+.info_list ul li{
+	width: 150px;
+	height: 50px;
+	border: 1px solid #e6e6e6;
+	text-align: center;
+	padding-top: 15px;
+}
+.info_list ul li a{
+	font-size: 20px;
+}
+.info_list ul li:hover a{
+	color: #00660e;
+	text-shadow: 2px 2px 2px #e6e6e6;
+}
+
+/* .iframe{
+	border: 1px solid #e6e6e6;
+} */
+#detailed_page, #detailed_menu, #detailed_photo, #detailed_review{
+	/*height: 800px;
+	background: aliceblue;*/
+	border-bottom: 1px solid #e6e6e6;
+	text-align: center;
+}
+.title{
+	font-size: 25px;
+	margin: 10px 0;
+	/*position: relative;*/
+}
+#detailed_page{
+	height: 250px;
+}
+#detailed_page div>div{
+	/*display: inline-block;
+	border: 2px solid #e6e6e6;*/
+	font-size: 18px;
+	margin-top: 5px;
+}
+#detailed_page div>div:last-child{
+	margin-left: 20px;
+}
+
+#menu~div{
+	margin-bottom: 10px;
+}
+#menu~div div:first-child{
+	font-size: 18px;
+	margin-bottom: 5px;
+}
+#detailed_photo img{
+	width: 100%;
+}
+#detailed_review img{
+	vertical-align: middle;
+}
+#detailed_review div{
+	margin-bottom: 8px;
+}
+#detailed_page img{
+	vertical-align: middle;
+	margin: 0 5px;
+}
+#reservation{
+	width: 350px; height: 570px;
+	float: right;
+	position: sticky;
+	top: 50px;
+	border: 1px solid #e6e6e6;
+	border-radius: 10px;
+}
+
+#calendar{
+	height:350px;
+	width: 330px;
+	margin: 0 auto;
+	/*border: 1px solid #e6e6e6;*/
+}
+
+#select{
+	position: relative;
+	margin-top: 10px;
+}
+#person{
+	width: 160px;
+	float: left;
+	margin-left: 10px;
+}
+
+#time{
+	width: 160px;
+	float: right;
+	margin-right: 10px;
+}
+select{
+	width: 160px;
+	height: 30px;
+	text-align: center;
+	border: 2px solid #00660e;
+	border-radius: 20px;
+	
+	/*appearance: none;*/
+}
+.opt:focus{
+	color: #00660e;
+}
+#select_info{
+	clear: both;
+}
+#select_info, #total_price, #reservation_button{
+	text-align: center;
+}
+/*#select_date{
+	width: 100px;
+	margin: 0 auto;
+}  */
+#select_date{
+	width: 90px;
+	font-family: Pretendard-Regular;
+}
+#reservation_button button{
+	width:100px ; height: 50px;
+	font-family: Pretendard-Regular;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: background 0.3s ease-in-out,
+				color 0.3s ease-in-out;
+	
+}
+#reservation_button button:hover{
+	color: white;
+	background: #00660e;
+}
+
+#div_up_arrow{
+	bottom: 10px;
+	position: sticky;
+	
+}
+#up_arrow{
+	width: 50px;
+	height: 50px;
+	margin-left: 85%;
+}
+#calendar_ymb{
+	display: flex;
+	margin: 0 auto;
+	justify-content: center;
+	padding: 5px;
+	font-size: 20px;
+}
+#prev, #next{
+	width: 30px;
+	margin: 0 5px;
+	background: none;
+	cursor: pointer;
+	/* border: 1px solid black; */
+}
+#calendar_ymb p{
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 6px;
+	/* border: 1px solid black; */
+}
+#calendar_ymb img{
+	width: 30px;
+}
+
+
+table{
+	width: 100%;
+	height: 300px;
+	text-align: center;
+	/*border: 1px solid black;*/
+	border-collapse: collapse;
+	border-radius: 20px;
+	overflow: hidden;
+	/*box-shadow: 4px 8px 8px hsl(0deg 0% 0%/0.38);*/
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	/*empty-cells: hide;*/
+}
+/*#reservation{
+	width: 350px; height: 500px;*/
+th, td{ 
+	/*border: 1px solid black;*/
+	vertical-align: middle;
+
+}
+td:hover{
+	background: rgba(0,102,14,0.5);
+	border-radius: 50%;
+	cursor: pointer;
+	color: white;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+/*
+.today{
+	background: rgb(0, 102, 14);
+	border-radius: 50%;
+	color: white;
+}*/
+.prevday{
+	color: gray;
+}
