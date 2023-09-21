@@ -24,7 +24,7 @@
 		let id = id_chk.id.value;
 		if(id==null){
 			alert("중복검사할 아이디를 입력해주세요.");
-		}else if(){
+		}else{
 			alert("사용가능한 아이디 입니다.");
 		}
 	}
