@@ -41,11 +41,11 @@
 						//MemberDTO member = (MemberDTO)session.getAttribute("member");
 						session.setAttribute("ID", name); %>
 						<li><%=name %>님</li>
-						<li><a href="${context}/mypages.do">마이페이지</a></li>
-						<li><a href="${context}/logout.do">로그아웃</a></li>
+						<li><a href="${context}/mypages">마이페이지</a></li>
+						<li><a href="${context}/logout">로그아웃</a></li>
 					<% } else{%>
-						<li><a href="${context}/login.do">로그인</a></li>
-						<li><a href="${context}/join.do">회원가입</a></li>
+						<li><a href="${context}/login">로그인</a></li>
+						<li><a href="${context}/join">회원가입</a></li>
 						<li><a href="#">고객센터</a></li>
 					<% }%>
 					</ul>
@@ -120,8 +120,8 @@
 						</li>
 					</ul>
 				</li> <!-- hover시 지역별메뉴  -->
-				<li class="mnav_list"><a href="/VeggiEats/boardList.do">베지레시피</a></li>
-				<li class="mnav_list"><a href="http://localhost:8080/VeggiEats/code/map.jsp">근처식당</a></li>
+				<li class="mnav_list"><a href="${context}/boardList">베지레시피</a></li>
+				<li class="mnav_list"><a href="${context}/veggieMap">근처식당</a></li>
 				<li class="mnav_list"><a href="#">공지사항</a></li>
 			</ul>
 		</div>
