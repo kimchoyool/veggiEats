@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<c:set var="context" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +35,7 @@
 <body>
 	<main>
 		<h3>환영합니다. 회원 가입이 되었습니다.</h3>
-		<a href="http://localhost:8080/VeggiEats/code/login.jsp">
+		<a href="${context}/login">
 		<button type="button">로그인</button>
 		</a>
 	</main>

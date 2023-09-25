@@ -52,8 +52,8 @@ var swiper = new Swiper('.swiper-container',{
 						<div class="swiper-slide"><a href="#"><img src="${context}/resources/img/배너3.png" alt=""></a></div>
 					</div>
 					<div class="swiper-pagination"></div>
-            		<div class="prev arrow"><img src="${context}/resources/img/arrow-left.svg" width="50px"></div>
-            		<div class="next arrow"><img src="${context}/resources/img/arrow-right.svg" width="50px"></div>
+            		<div class="prev arrow"><img src="${context}/resources/img/arrow-left.svg" width="50px" alt="arrow-left"></div>
+            		<div class="next arrow"><img src="${context}/resources/img/arrow-right.svg" width="50px" alt="arrow-right"></div>
 				</div>
 			</article>
 			<div id="main_shops">
@@ -61,55 +61,55 @@ var swiper = new Swiper('.swiper-container',{
 				<div id="shops_fav">
 					<article class="shops">
 						<div>
-						<a href="http://localhost:8080/VeggiEats/code/shop_page.jsp"><img src="${context}/resources/img/연남 플랜트1.jpg"></a>
+						<a href="${context}/shop_page"><img src="${context}/resources/img/연남 플랜트1.jpg" alt="비건식당 사진"></a>
 						</div>
 						<p>플랜트 연남점<p>
 						<p>서울 마포구 월드컵북로4길 87</p>
 					</article>
 					<article class="shops"><div>
-						<a href="http://localhost:8080/VeggiEats/code/shop_page.jsp"><img src="${context}/resources/img/인기식당2.png"></a>
+						<a href="${context}/shop_page"><img src="${context}/resources/img/인기식당2.png" alt="비건식당 사진"></a>
 						</div>
 						<p>인기/추천 식당2</p>
 						<p></p>
 					</article>
 					<article class="shops">
 						<div>
-							<a href="http://localhost:8080/VeggiEats/code/shop_page.jsp"><img src="${context}/resources/img/인기식당3.jpg"></a>
+							<a href="${context}/shop_page"><img src="${context}/resources/img/인기식당3.jpg" alt="비건식당 사진"></a>
 						</div>
 						<p>인기/추천 식당3</p>
 						<p></p>
 					</article>
 					<article class="shops">
 						<div>
-							<a href="http://localhost:8080/VeggiEats/code/shop_page.jsp"><img src="${context}/resources/img/인기식당4.png"></a>
+							<a href="${context}/shop_page"><img src="${context}/resources/img/인기식당4.png" alt="비건식당 사진"></a>
 						</div>
 						<p>인기/추천 식당4</p>
 						<p></p>
 					</article>
 					<article class="shops">
 						<div>
-							<a href="http://localhost:8080/VeggiEats/code/shop_page.jsp"><img src="${context}/resources/img/인기식당5.png"></a>
+							<a href="${context}/shop_page"><img src="${context}/resources/img/인기식당5.png" alt="비건식당 사진"></a>
 						</div>
 						<p>인기/추천 식당5<p>
 						<p></p>
 					</article>
 					<article class="shops">
 						<div>
-							<a href="http://localhost:8080/VeggiEats/code/shop_page.jsp"><img src="${context}/resources/img/인기식당6.jpg"></a>
+							<a href="${context}/shop_page"><img src="${context}/resources/img/인기식당6.jpg" alt="비건식당 사진"></a>
 						</div>
 						<p>인기/추천 식당6</p>
 						<p></p>
 					</article>
 					<article class="shops">
 						<div>
-							<a href="http://localhost:8080/VeggiEats/code/shop_page.jsp"><img src="${context}/resources/img/인기식당7.png"></a>
+							<a href="${context}/shop_page"><img src="${context}/resources/img/인기식당7.png" alt="비건식당 사진"></a>
 						</div>
 						<p>인기/추천 식당7</p>
 						<p></p>
 					</article>
 					<article class="shops">
 						<div>
-							<a href="http://localhost:8080/VeggiEats/code/shop_page.jsp"><img src="${context}/resources/img/인기식당8.png"></a>
+							<a href="${context}/shop_page"><img src="${context}/resources/img/인기식당8.png" alt="비건식당 사진"></a>
 						</div>
 						<p>인기/추천 식당8</p>
 						<p></p>

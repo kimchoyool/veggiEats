@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="${context}/common/css/join.css" rel="stylesheet" media="all">
+<link href="${context}/resources/css/join.css" rel="stylesheet" media="all">
 
 <title>회원가입</title>
 </head>
@@ -17,7 +17,7 @@
         <div id="join_inner">
             <div id="join_must"><span class="must">*</span> 필수입력사항</div>
             <!--라벨 인풋(text) 버튼 -->
-			<form action="${context}/join.do" method="post" onsubmit="return chk_join()">
+			<form action="/join" method="post" onsubmit="return chk_join()">
             <div id="join_detailed"> <!--회원가입정보 입력 -->
                 <div id="join_id" class="join_div">
                     <label>아이디<span class="must">*</span></label>
@@ -107,6 +107,6 @@
         </div>
     </main>
 	<%-- <script type="text/javascript" src="${context}/common/js/jquery-3.6.4.js"></script> --%>
-	<script type="text/javascript" src="${context}/common/js/join.js"></script>
+	<script type="text/javascript" src="${context}/resources/js/join.js"></script>
 </body>
 </html>

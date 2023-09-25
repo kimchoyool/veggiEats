@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<c:set var="context" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 
-<link href="../common/css/map.css" rel="stylesheet" media="all">
+<link href="${context}/resources/css/map.css" rel="stylesheet" media="all">
 <title>근처식당</title>
 </head>
 <body>
@@ -17,7 +18,7 @@
 		<section id="map_shops">
 			<a href="./shop_page.jsp">
 				<div class="map_shop">
-					<img src="../common/img/인기식당2.png" width="150px">
+					<img src="${context}/resources/img/인기식당2.png" width="150px">
 					<div>
 						<p>식당이름</p>
 						<p>위치, 별점, 간단한 설명</p>
@@ -26,7 +27,7 @@
 			</a>
 			<a href="./shop_page.jsp">
 				<div class="map_shop">
-					<img src="../common/img/인기식당3.jpg" width="150px">
+					<img src="${context}/resources/img/인기식당3.jpg" width="150px">
 					<div>
 						<p>식당이름</p>
 						<p>위치, 별점, 간단한 설명</p>
@@ -35,7 +36,7 @@
 			</a>
 			<a href="./shop_page.jsp">
 				<div class="map_shop">
-					<img src="../common/img/인기식당8.png" width="150px">
+					<img src="${context}/resources/img/인기식당8.png" width="150px">
 					<div>
 						<p>식당이름</p>
 						<p>위치, 별점, 간단한 설명</p>
@@ -44,7 +45,7 @@
 			</a>
 			<a href="./shop_page.jsp">
 				<div class="map_shop">
-					<img src="../common/img/인기식당9.png" width="150px">
+					<img src="${context}/resources/img/인기식당9.png" width="150px">
 					<div>
 						<p>식당이름</p>
 						<p>위치, 별점, 간단한 설명</p>
@@ -53,7 +54,7 @@
 			</a>
 			<a href="./shop_page.jsp">
 				<div class="map_shop">
-					<img src="../common/img/인기식당4.png" width="150px">
+					<img src="${context}/resources/img/인기식당4.png" width="150px">
 					<div>
 						<p>식당이름</p>
 						<p>위치, 별점, 간단한 설명</p>
@@ -63,8 +64,8 @@
 		</section>
 	</main>
 	<div id="div_up_arrow">
-		<a href="#contents_map"><img id="up_arrow" src="../common/img/arrow-up-circle.svg"></a>
+		<a href="#contents_map"><img id="up_arrow" src="${context}/resources/img/arrow-up-circle.svg"></a>
 	</div>
-	<script type="text/javascript" src="../common/js/map.js"></script>
+	<script type="text/javascript" src="${context}/resources/js/map.js"></script>
 </body>
 </html>

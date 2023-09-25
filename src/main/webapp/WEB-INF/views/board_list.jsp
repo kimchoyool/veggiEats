@@ -21,7 +21,7 @@
 		if(id == 'null'){
 			alert("로그인이 필요합니다.");
 		}else{
-			window.location.href='http://localhost:8080/VeggiEats/insertBoard';
+			window.location.href='${context}/insertBoard';
 		}
 	}
 </script>
@@ -37,7 +37,7 @@
 					<td>${board.board_id}</td>
 					<td>${board.create_date.toLocalDate()}</td>
 					<td>${board.title} </td>
-					<td>${board.m_id}</td>
+					<td>${board.member_id}</td>
 				</tr>
 			</c:forEach>
 			<tr>

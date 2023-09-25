@@ -8,33 +8,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="${context}/common/css/login.css" rel="stylesheet" media="all">
+<link href="${context}/resources/css/login.css" rel="stylesheet" media="all">
 <title>로그인</title>
 </head>
 <body>
 	<main>
 		<div id="contents_login">
 			<div id="login_w">
-				<spring:message code="message.user.login.title"/><br>
-				<spring:message code="message.user.login.name"/>
+				로그인
 			</div>
 			<div id="login_box">
-				<form action="${context}/login.do" method="post">
+				<form action="/login" method="post">
 					<div id="idpw">
-						<input type="text" name="M_id" placeholder=" <spring:message code="message.user.login.id"/>" >
-						<input type="password" name="M_password" placeholder=" <spring:message code="message.user.login.password"/>">
+						<input type="text" name="M_id" placeholder="아이디" >
+						<input type="password" name="M_password" placeholder="비밀번호">
 					</div>
 					<div id="find">
-						<a href="#"><spring:message code="message.user.login.findID"/></a>
+						<a href="#">아이디 찾기</a>
 						<span>|</span>
-						<a href="#"><spring:message code="message.user.login.findPassword"/></a>
+						<a href="#">비밀번호 찾기</a>
 					</div>
 					<div id="button">
 						
-						<input type="submit" value="<spring:message code="message.user.login.title"/>" class="btn">	
-						<a href="${context}/join.do">
+						<input type="submit" value="로그인" class="btn">
+						<a href="${context}/join">
 							<button type="button" class="btn">
-								<span><spring:message code="message.user.login.register"/></span>
+								회원가입</span>
 							</button>
 						</a>
 					</div>

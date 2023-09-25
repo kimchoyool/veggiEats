@@ -7,6 +7,7 @@ import com.java.veggieats.member.entity.MemberEntity;
 import com.java.veggieats.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -118,5 +119,86 @@ public class MemberController {
         return "/my_recipe";
     }
 
-    //회원정보 수정(비번,이메일,닉네임), 탈퇴 API 추가 해야함
+    @GetMapping(value = "/update/pw")
+    public String getUpdatePw(HttpSession session, Model model){
+        String ID = (String) session.getAttribute("ID");
+        if(ID != null){
+            model.addAttribute("user",memberRepository.findById(ID));
+        }
+        return "/popup/pw_update";
+    }
+
+    @Transactional
+    @PostMapping(value = "/update/pw")
+    public String postUpdatePw(Model model, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        String ID = (String) session.getAttribute("ID");
+        MemberEntity member = memberRepository.findById(ID).get();
+        //수정되는지 확인하기
+        member.builder()
+                .member_password(request.getParameter("new_pw"))
+                .build();
+        model.addAttribute("user",member);
+        return "my_information";
+    }
+
+    @GetMapping(value = "/update/nickname")
+    public String getUpdateNickname(HttpSession session, Model model){
+        String ID = (String) session.getAttribute("ID");
+        if(ID != null){
+            model.addAttribute("user",memberRepository.findById(ID));
+        }
+        return "/popup/nName_update"; //redirect:?
+    }
+
+    @Transactional
+    @PostMapping(value = "/update/nickname")
+    public String postUpdateNickname(Model model, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        String ID = (String) session.getAttribute("ID");
+        MemberEntity member = memberRepository.findById(ID).get();
+        //수정되는지 확인하기
+        member.builder()
+                .nickname(request.getParameter("new_n_name"))
+                .build();
+        model.addAttribute("user",member);
+        return "my_information";
+    }
+
+    @GetMapping(value = "/update/email")
+    public String getUpdateEmail(HttpSession session, Model model){
+        String ID = (String) session.getAttribute("ID");
+        if(ID != null){
+            model.addAttribute("user",memberRepository.findById(ID));
+        }
+        return "/popup/email_update"; //redirect:?
+    }
+    @Transactional
+    @PostMapping(value = "/update/email")
+    public String postUpdateEmail(Model model, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        String ID = (String) session.getAttribute("ID");
+        MemberEntity member = memberRepository.findById(ID).get();
+        //수정되는지 확인하기
+        member.builder()
+                .email(request.getParameter("new_email"))
+                .build();
+        model.addAttribute("user",member);
+        return "my_information";
+    }
+
+    @PostMapping(value = "/delete")
+    public String postDelete(@RequestBody MemberDTO memberDTO, HttpSession session){
+        session.invalidate();
+        MemberEntity member = MemberEntity.builder()
+                .member_id(memberDTO.getMember_id())
+                .member_password(memberDTO.getMember_password())
+                .member_name(memberDTO.getMember_name())
+                .nickname(memberDTO.getNickname())
+                .email(memberDTO.getEmail())
+                .birthday(memberDTO.getBirthday())
+                .build();
+        memberRepository.delete(member);
+        return "delete_account";
+    }
 }

@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<c:set var="context" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="../common/css/join.css" rel="stylesheet" media="all">
+<link href="${context}/resources/css/join.css" rel="stylesheet" media="all">
 
 <title>회원가입</title>
 </head>
@@ -99,6 +100,6 @@
         </div>
     </main>
 
-	<script type="text/javascript" src="../common/js/join.js"></script>
+	<script type="text/javascript" src="${context}/resources/js/join.js"></script>
 </body>
 </html>
