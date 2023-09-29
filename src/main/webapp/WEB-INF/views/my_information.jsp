@@ -8,50 +8,50 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="${context}/common/css/mypage.css" rel="stylesheet" media="all">
+<link href="${context}/resources/css/mypage.css" rel="stylesheet" media="all">
 
 <title>마이페이지</title>
 <script type="text/javascript">
 	window.name='info_update';
 	function pwchk() {
-		window.open('http://localhost:8080/VeggiEats/updatePw.do','pw_update','width=430,height=300,left=700,top=30,location=no,status=no,scrollbars=yes');
+		window.open('${context}/updatePw','pw_update','width=430,height=300,left=700,top=30,location=no,status=no,scrollbars=yes');
 	}
 	
 	function nnamechg() {
-		window.open('http://localhost:8080/VeggiEats/updateNickName.do','n_name_update','width=430,height=300,left=700,top=30,location=no,status=no,scrollbars=yes');
+		window.open('${context}/updateNickname','n_name_update','width=430,height=300,left=700,top=30,location=no,status=no,scrollbars=yes');
 	}
 	
 	function emailchg() {
-		window.open('http://localhost:8080/VeggiEats/updateEmail.do','email_update','width=430,height=300,left=700,top=30,location=no,status=no,scrollbars=yes');
+		window.open('${context}/updateEmail','email_update','width=430,height=300,left=700,top=30,location=no,status=no,scrollbars=yes');
 	}
 </script>
 </head>
 <body>
+<jsp:include page="common/header.jsp"/>
 	<main id="contents_myPage">
 		<%@ include file="my_page_side.jsp" %>
 		<div id="main">
 			<div class="section">
-				<p>&nbsp; <spring:message code="message.user.information.title"/> </p>
+				<p>&nbsp; 회원정보 조회 수정 </p>
 				<div>
 				<form>
 					<table class="info">
 					
-						<tr><th><spring:message code="message.user.information.id"/></th><td><input type="text" value="${user.m_id}" readonly></td></tr>
-						<tr><th><spring:message code="message.user.information.password"/></th><td><input type="password" value="${user.m_password}"></td><td><button type="button" onclick="pwchk()"><spring:message code="message.user.information.update"/></button> </td></tr>
-						<tr><th><spring:message code="message.user.information.name"/></th><td><input type="text" value="${user.m_name}" readonly></td></tr>
-						<tr><th><spring:message code="message.user.information.nickName"/></th><td><input type="text" value="${user.nick_name}" ></td><td><button type="button" onclick="nnamechg()"><spring:message code="message.user.information.update"/></button></tr>
-						<tr><th><spring:message code="message.user.information.email"/></th><td><input type="text" value="${user.email}" ></td><td><button type="button" onclick="emailchg()"><spring:message code="message.user.information.update"/></button></tr>
-						<tr><th><spring:message code="message.user.information.birth"/></th><td><input type="text" value="${user.birth}" readonly></td></tr>
-						<tr><td colspan="2"><a href="${context}/delete.do" id="out"><spring:message code="message.user.information.unregister"/></a></td></tr>
+						<tr><th>아이디</th><td><input type="text" value="${user.get().memberId}" readonly></td></tr>
+						<tr><th>비밀번호</th><td><input type="password" value="${user.get().memberPassword}"></td><td><button type="button" onclick="pwchk()">수정</button> </td></tr>
+						<tr><th>이름</th><td><input type="text" value="${user.get().memberName}" readonly></td></tr>
+						<tr><th>닉네임</th><td><input type="text" value="${user.get().nickname}" ></td><td><button type="button" onclick="nnamechg()">수정</button></tr>
+						<tr><th>이메일</th><td><input type="text" value="${user.get().email}" ></td><td><button type="button" onclick="emailchg()">수정</button></tr>
+						<tr><th>생년월일</th><td><input type="text" value="${user.get().birthday}" readonly></td></tr>
+						<tr><td colspan="2"><a href="${context}/delete" id="out">회원탈퇴</a></td></tr>
 					
 					</table>
 				</form>
 				</div>
 			</div>
-			
 		</div>
     </main>
-
-	<script type="text/javascript" src="${context}/common/js/my_information.js"></script>
+<jsp:include page="common/footer.jsp"/>
+	<script type="text/javascript" src="${context}/resources/js/my_information.js"></script>
 </body>
 </html>

@@ -53,7 +53,7 @@ public class BoardController {
     public String boardWritePost(BoardDTO board, HttpServletRequest request) throws Exception, IOException{
         HttpSession session = request.getSession();
         BoardEntity boardEntity = BoardEntity.builder()
-                .member_id((String) session.getAttribute("ID"))
+                .memberId((String) session.getAttribute("ID"))
                 .title(board.getTitle())
                 .build();
         BoardEntity entity = boardRepository.save(boardEntity);
@@ -64,8 +64,8 @@ public class BoardController {
             String uuid = UUID.randomUUID().toString();
             Path targetPath = FileUtils.saveFile(uploadFile,uuid);
             BoardImageEntity image = BoardImageEntity.builder()
-                    .board_id(entity.getBoard_id())
-                    .image_file(targetPath.toString())
+                    .boardId(entity.getBoardId())
+                    .imageFile(targetPath.toString())
                     .build();
         }
 
@@ -80,10 +80,10 @@ public class BoardController {
     @PostMapping(value = "/updateBoard")
     public String updateBoardPost(@RequestBody BoardDTO boardDTO, Model model){
         BoardEntity board = BoardEntity.builder()
-                .board_id((long) boardDTO.getBoard_id())
+                .boardId((long) boardDTO.getBoard_id())
                 .title(boardDTO.getTitle())
                 .content(boardDTO.getContent())
-                .member_id(boardDTO.getMember_id())
+                .memberId(boardDTO.getMember_id())
                 .build();
 
         return "redirect:boardList";
@@ -92,8 +92,8 @@ public class BoardController {
     public String deleteBoard(@RequestParam("no") long no, HttpSession session){
         //되는지 확인
         BoardEntity board = BoardEntity.builder()
-                .board_id(no)
-                .member_id((String) session.getAttribute("ID"))
+                .boardId(no)
+                .memberId((String) session.getAttribute("ID"))
                 .build();
         boardRepository.deleteById(no);
         return "redirect:boardList";

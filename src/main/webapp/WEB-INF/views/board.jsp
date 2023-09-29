@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <c:set var="context" value="${pageContext.request.contextPath}" />
 <c:set var="loginID" value="${ID}" />
-<c:set var="boardID" value="${board.get().m_id}" />
+<c:set var="boardID" value="${board.get().memberId}" />
 <c:set var="context" value="${pageContext.request.contextPath}" />
 <%
 	request.setCharacterEncoding("utf-8");
@@ -25,10 +25,10 @@
 	<input type="hidden" name="board_id" value="${board.board_id}"> --%>
 		<table id="content">
 			<tr>
-				<th>작성일</th><td>${board.get().create_date}</td>
+				<th>작성일</th><td>${board.get().createDate}</td>
 			</tr>
 			<tr>
-				<th>작성자</th><td>${board.get().m_id}</td>
+				<th>작성자</th><td>${board.get().memberId}</td>
 			</tr>
 			<tr>
 				<th>제목</th><td>${board.get().title}</td>
@@ -42,8 +42,8 @@
 					session.setAttribute("ID", id);-->
 				<c:if test="${loginID eq boardID}" >
 				<td>
-					<button type="button" class="btn_board" onclick="location.href='${context}/updateBoard?no=${board.get().board_id}'">수정</button>&nbsp;
-					<button type="button" class="btn_board" onclick="location.href='${context}/deleteBoard?no=${board.get().board_id}'">삭제</button>
+					<button type="button" class="btn_board" onclick="location.href='${context}/updateBoard?no=${board.get().boardId}'">수정</button>&nbsp;
+					<button type="button" class="btn_board" onclick="location.href='${context}/deleteBoard?no=${board.get().boardId}'">삭제</button>
 				</td>
 				</c:if>
 			</tr>

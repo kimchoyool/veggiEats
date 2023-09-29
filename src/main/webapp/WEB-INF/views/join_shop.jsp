@@ -10,6 +10,7 @@
 <title>회원가입</title>
 </head>
 <body>
+<jsp:include page="common/header.jsp"/>
 	<main id="contents_join">
         <div id="join_word">기업회원 회원가입</div>
         <div id="join_inner">
@@ -99,7 +100,7 @@
             </div>
         </div>
     </main>
-
+<jsp:include page="common/footer.jsp"/>
 	<script type="text/javascript" src="${context}/resources/js/join.js"></script>
 </body>
 </html>

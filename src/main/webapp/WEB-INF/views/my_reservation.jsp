@@ -9,11 +9,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="${context}/common/css/mypage.css" rel="stylesheet" media="all">
+<link href="${context}/resources/css/mypage.css" rel="stylesheet" media="all">
 
 <title>마이페이지</title>
 </head>
 <body>
+<jsp:include page="common/header.jsp"/>
 	<main id="contents_myPage">
 		<%@ include file="my_page_side.jsp" %>
 		<div id="main">
@@ -23,7 +24,7 @@
 					<table class="my_reservation">
 						<tr><th>예약일</th><th>예약시간</th><th>식당명</th><th>예약인원</th><th>상태</th></tr>
 						<c:forEach var="reservation" items="${reservation}">
-							<tr style="cursor: pointer;" onclick="location.href='${context}/reservationInfo.do?no=${reservation.r_no}'">
+							<tr style="cursor: pointer;" onclick="location.href='${context}/reservationInfo?no=${reservation.r_no}'">
 								<td>${reservation.reservation_date}</td>
 								<td>${reservation.reservation_time}</td>
 								<td>${reservation.restaurantNameVO.r_name}</td>
@@ -34,8 +35,8 @@
 					</table>
 				</div>
 			</div>
-			
 		</div>
     </main>
+<jsp:include page="common/footer.jsp"/>
 </body>
 </html>

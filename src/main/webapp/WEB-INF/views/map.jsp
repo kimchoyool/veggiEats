@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
 <link href="${context}/resources/css/map.css" rel="stylesheet" media="all">
 <title>근처식당</title>
 </head>
 <body>
+<jsp:include page="common/header.jsp"/>
 	<main id="contents_map">
 		<section id="map">
 			<iframe id="map_iframe" width="700px" height="500px" frameborder="0"scrolling='no' marginheight="0" marginwidth="0">
@@ -66,6 +66,7 @@
 	<div id="div_up_arrow">
 		<a href="#contents_map"><img id="up_arrow" src="${context}/resources/img/arrow-up-circle.svg"></a>
 	</div>
+<jsp:include page="common/footer.jsp"/>
 	<script type="text/javascript" src="${context}/resources/js/map.js"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" session="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="context" value="${pageContext.request.contextPath}" />
 <%
 	request.setCharacterEncoding("utf-8");
 %>
@@ -39,9 +40,9 @@
 <body>
 	<main>
 		<h3>이메일 변경</h3>
-		<form action="http://localhost:8080/VeggiEats/updateEmail.do" name="email_update" method="post">
+		<form action="${context}/updateEmail" name="email_update" method="post">
 		<!--<input type="hidden" name="cmd" value="update">-->
-			현재 이메일: <input type="text" name="email" value="${user.email}" required>
+			현재 이메일: <input type="text" name="email" value="${user.get().email}" required>
 			<br><br>
 			변경할 이메일: <input type="text" name="new_email" placeholder="새 이메일">
 			<br><br>

@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.el.MethodNotFoundException;
+
 @ControllerAdvice("com.java.veggieats")
 public class CommonExceptionHandler {
 
@@ -31,6 +33,14 @@ public class CommonExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ModelAndView handlerException(Exception e) {
 
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("exception", e);
+        mav.setViewName("/common/error");
+
+        return mav;
+    }
+    @ExceptionHandler(MethodNotFoundException.class)
+    public ModelAndView methodNotFoundException(Exception e){
         ModelAndView mav = new ModelAndView();
         mav.addObject("exception", e);
         mav.setViewName("/common/error");

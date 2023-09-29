@@ -33,11 +33,13 @@
 </style>
 </head>
 <body>
+<jsp:include page="common/header.jsp"/>
 	<main>
 		<h3>환영합니다. 회원 가입이 되었습니다.</h3>
 		<a href="${context}/login">
 		<button type="button">로그인</button>
 		</a>
 	</main>
+<jsp:include page="common/footer.jsp"/>
 </body>
 </html>

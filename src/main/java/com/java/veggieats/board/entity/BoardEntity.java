@@ -15,22 +15,26 @@ import java.time.LocalDateTime;
 public class BoardEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long board_id;
-    private String member_id;
+    @Column(name = "board_id")
+    private Long boardId;
+    @Column(name = "member_id")
+    private String memberId;
     private String title;
     private String content;
     @CreationTimestamp
-    private LocalDateTime create_date;
+    @Column(name = "create_date")
+    private LocalDateTime createDate;
     @CreationTimestamp
-    private LocalDateTime update_date;
+    @Column(name = "update_date")
+    private LocalDateTime updateDate;
 
     @Builder
-    public BoardEntity(Long board_id, String member_id, String title, String content, LocalDateTime create_date, LocalDateTime update_date){
-        this.board_id = board_id;
-        this.member_id = member_id;
+    public BoardEntity(Long boardId, String memberId, String title, String content, LocalDateTime createDate, LocalDateTime updateDate){
+        this.boardId = boardId;
+        this.memberId = memberId;
         this.title = title;
         this.content = content;
-        this.create_date = create_date;
-        this.update_date = update_date;
+        this.createDate = createDate;
+        this.updateDate = updateDate;
     }
 }

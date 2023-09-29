@@ -12,16 +12,17 @@
 <title>로그인</title>
 </head>
 <body>
+<jsp:include page="common/header.jsp"/>
 	<main>
 		<div id="contents_login">
 			<div id="login_w">
 				로그인
 			</div>
 			<div id="login_box">
-				<form action="/login" method="post">
+				<form action="/login" method="post" enctype="application/x-www-form-urlencoded">
 					<div id="idpw">
-						<input type="text" name="M_id" placeholder="아이디" >
-						<input type="password" name="M_password" placeholder="비밀번호">
+						<input type="text" name="Member_id" placeholder="아이디" >
+						<input type="password" name="Member_password" placeholder="비밀번호">
 					</div>
 					<div id="find">
 						<a href="#">아이디 찾기</a>
@@ -41,5 +42,6 @@
 			</div>
 		</div>
 	</main>
+	<jsp:include page="common/footer.jsp"/>
 </body>
 </html>

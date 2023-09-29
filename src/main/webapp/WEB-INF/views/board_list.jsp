@@ -33,11 +33,11 @@
 			<tr><th>번호</th><th>날짜</th><th>제목</th><th>작성자</th></tr>
 			<!-- 클릭하면 해당 게시글페이지로 이동 -->
 			<c:forEach var="board" items="${boardList}">
-				<tr style="cursor: pointer;" onclick="location.href='${context}/board?no=${board.board_id}'">
-					<td>${board.board_id}</td>
-					<td>${board.create_date.toLocalDate()}</td>
+				<tr style="cursor: pointer;" onclick="location.href='${context}/board?no=${board.boardId}'">
+					<td>${board.boardId}</td>
+					<td>${board.createDate.toLocalDate()}</td>
 					<td>${board.title} </td>
-					<td>${board.member_id}</td>
+					<td>${board.memberId}</td>
 				</tr>
 			</c:forEach>
 			<tr>

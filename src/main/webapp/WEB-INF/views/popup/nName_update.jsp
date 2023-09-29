@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" session="true"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="context" value="${pageContext.request.contextPath}" />
 <%
 	request.setCharacterEncoding("utf-8");
 %>
@@ -30,9 +31,9 @@
 <body>
 	<main>
 		<h3>닉네임 변경</h3>
-		<form action="http://localhost:8080/VeggiEats/updateNickName.do" name="nName_update" method="post">
+		<form action="${context}/updateNickname" name="nName_update" method="post">
 		<!-- <input type="hidden" name="cmd" value="update"> -->
-			현재 닉네임: <input type="text" name="n_name" value="${user.nick_name}" required>
+			현재 닉네임: <input type="text" name="n_name" value="${user.get().nickname}" required>
 			<br><br>
 			변경할 닉네임: <input type="text" name="new_n_name" placeholder="새 닉네임">
 			<br><br>

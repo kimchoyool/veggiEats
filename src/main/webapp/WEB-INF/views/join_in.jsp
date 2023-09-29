@@ -10,7 +10,7 @@
 <title>회원가입</title>
 </head>
 <body>
-
+<jsp:include page="common/header.jsp"/>
 	<main id="contents_join_btn">
 		<div>
 			<div><button type="button"> <a href="${context}/join"><p>개인</p><p>회원가입</p></a></button></div>
@@ -18,7 +18,7 @@
 		</div>
 		
     </main>
-
+<jsp:include page="common/footer.jsp"/>
 	<script type="text/javascript" src="${context}/resources/js/join.js"></script>
 </body>
 </html>

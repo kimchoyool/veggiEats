@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" session="true"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="context" value="${pageContext.request.contextPath}" />
 <%
 	request.setCharacterEncoding("utf-8");
 %>
@@ -30,8 +31,8 @@
 		let new_pw = pw_update.new_pw.value;
 		let new_pw_chk = pw_update.new_pw_chk.value;
 		
-		if(pw=="<c:out value='${user.m_password}'/>"){ 
-			console.log(<c:out value='${user.m_password}'/>);
+		if(pw=="<c:out value='${user.get().memberPassword}'/>"){
+			console.log(<c:out value='${user.get().memberPassword}'/>);
 			if(new_pw===new_pw_chk){
 				alert("비밀번호가 수정되었습니다.");
 				
@@ -55,7 +56,7 @@
 	<main>
 		<h3>비밀번호 변경</h3>
 		<!-- action="부모창.jsp" http://localhost:8080/VeggiEats/Veggieats -->
-		<form action="http://localhost:8080/VeggiEats/updatePw.do" name="pw_update" method="post">
+		<form action="${context}/updatePw" name="pw_update" method="post">
 		<!--<input type="hidden" name="cmd" value="update">-->
 			<input type="text" name="pw" placeholder="현재 비밀번호">
 			<br><br>

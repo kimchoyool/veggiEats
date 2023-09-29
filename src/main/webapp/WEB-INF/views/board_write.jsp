@@ -12,6 +12,7 @@
 <title>베지레시피</title>
 </head>
 <body>
+<jsp:include page="common/header.jsp"/>
 	<main id="contents_board">
 	<!-- 제목 , 내용 -->
 	<form action="/boardWrite" method="post" enctype="multipart/form-data">
@@ -25,7 +26,7 @@
 	</table>
 	</form>
 	</main>
-
+<jsp:include page="common/footer.jsp"/>
 <script type="text/javascript" src="${context}/resources/js/board.js?v=<%=System.currentTimeMillis() %>"></script>
 
 </body>

@@ -26,7 +26,7 @@
 		<div class="inner">
 			<div id="logo">
 			<!-- 상대경로로 하면 메인과 다른 페이지들의 위치가 달라서 로고가 적용이 안되는 페이지가 생김  > 절대경로로 함 -->
-				<a href="${context}"><img src="${context}/resources/img/Veggieats.png"></a>
+				<a href="${context}/"><img src="${context}/resources/img/Veggieats.png"></a>
 			</div>
 			<div id="search">
 				<input id="search_bar" type="text" placeholder="  검색 ">
@@ -41,7 +41,7 @@
 						//MemberDTO member = (MemberDTO)session.getAttribute("member");
 						session.setAttribute("ID", name); %>
 						<li><%=name %>님</li>
-						<li><a href="${context}/mypages">마이페이지</a></li>
+						<li><a href="${context}/mypage">마이페이지</a></li>
 						<li><a href="${context}/logout">로그아웃</a></li>
 					<% } else{%>
 						<li><a href="${context}/login">로그인</a></li>

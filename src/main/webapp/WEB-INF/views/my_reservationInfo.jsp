@@ -44,9 +44,10 @@
 </style>
 </head>
 <body>
+<jsp:include page="common/header.jsp"/>
 	<main>
 		<h3>예약 내역</h3>
-		<form action="${context}/reservationInfo.do" method="post">
+		<form action="${context}/reservationInfo" method="post">
 			<table>
 				<tr>
 					<th>예약번호</th><th>예약일</th><th>예약시간</th><th>식당명</th><th>예약인원</th><th>상태</th>
@@ -64,5 +65,6 @@
 			<button type="submit">예약취소</button> &nbsp;
 		</form>
 	</main>
+<jsp:include page="common/footer.jsp"/>
 </body>
 </html>

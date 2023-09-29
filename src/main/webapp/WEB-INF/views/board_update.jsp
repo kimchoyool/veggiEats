@@ -12,10 +12,11 @@
 <title>베지레시피</title>
 </head>
 <body>
+<jsp:include page="common/header.jsp"/>
 	<main id="contents_board">
 	<!-- 제목 , 내용 -->
 	<form action="/updateBoard" method="post">
-	<input type="hidden" name="board_id" value="${board.board_id}">
+	<input type="hidden" name="board_id" value="${board.boardId}">
 	<table id="write">
 		<tr><td><input type="text" name="title" maxlength="50" placeholder="제목" value="${board.title}" required></td></tr>
 		<tr><td><textarea name="content" placeholder="내용" required>${board.content}</textarea></td></tr>
@@ -24,7 +25,7 @@
 	</table>
 	</form>
 	</main>
-
+<jsp:include page="common/footer.jsp"/>
 <script type="text/javascript" src="${context}/resources/js/board.js?v=<%=System.currentTimeMillis() %>"></script>
 
 </body>

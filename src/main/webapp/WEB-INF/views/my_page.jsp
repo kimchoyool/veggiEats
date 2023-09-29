@@ -13,23 +13,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="${context}/common/css/mypage.css" rel="stylesheet" media="all">
+<link href="${context}/resources/css/mypage.css" rel="stylesheet" media="all">
 
 <title>마이페이지</title>
 </head>
 <body>
+<jsp:include page="common/header.jsp"/>
 	<main id="contents_myPage">
 		 <%@ include file="my_page_side.jsp" %>
 		<div id="main">
 			<div class="section">
-				<p>&nbsp; 최근 예약 내역 &nbsp;&nbsp;<a href="myReservation.do">더보기</a></p>
+				<p>&nbsp; 최근 예약 내역 &nbsp;&nbsp;<a href="myReservation">더보기</a></p>
 				<div>
 					<table class="my_page">
 						<tr><th>예약일</th><th>식당명</th><th>예약인원</th><th>상태</th></tr>
 						<c:choose>
 							<c:when test="${fn:length(reservation) > 5 }">
 								<c:forEach var="reservation" items="${reservation}" begin="0" end="4">
-									<tr style="cursor: pointer;" onclick="location.href='${context}/reservationInfo.do?no=${reservation.r_no}'">
+									<tr style="cursor: pointer;" onclick="location.href='${context}/reservationInfo?no=${reservation.r_no}'">
 										<td>${reservation.reservation_date}</td>
 										<td>${reservation.restaurantNameVO.r_name}</td>
 										<td>${reservation.people}</td>
@@ -39,7 +40,7 @@
 							</c:when>
 							<c:otherwise>
 								<c:forEach var="reservation" items="${reservation}">
-									<tr style="cursor: pointer;" onclick="location.href='${context}/reservationInfo.do?no=${reservation.r_no}'">
+									<tr style="cursor: pointer;" onclick="location.href='${context}/reservationInfo?no=${reservation.r_no}'">
 										<td>${reservation.reservation_date}</td>
 										<td>${reservation.restaurantNameVO.r_name}</td>
 										<td>${reservation.people}</td>
@@ -64,15 +65,15 @@
 				</div>
 			</div>
 			<div class="section">
-				<p>&nbsp; 비건레시피 작성글 &nbsp;&nbsp;<a href="myboard.do">더보기</a></p>
+				<p>&nbsp; 비건레시피 작성글 &nbsp;&nbsp;<a href="myBoard">더보기</a></p>
 				<div>
 					<table class="my_page">
 						<tr><th>작성일</th><th>제목</th><th>조회수</th><th>추천수</th></tr>
 						<c:choose>
 							<c:when test="${fn:length(board) > 5 }">
 								<c:forEach var="board" items="${board}" begin="0" end="4">
-									<tr style="cursor: pointer;" onclick="location.href='${context}/board.do?no=${board.board_id}'">
-										<td>${board.create_date}</td>
+									<tr style="cursor: pointer;" onclick="location.href='${context}/board?no=${board.boardId}'">
+										<td>${board.createDate.toLocalDate()}</td>
 										<td>${board.title}</td>
 										<td></td>
 										<td></td>
@@ -81,8 +82,8 @@
 							</c:when>
 							<c:otherwise>
 								<c:forEach var="board" items="${board}">
-									<tr style="cursor: pointer;" onclick="location.href='${context}/board.do?no=${board.board_id}'">
-										<td>${board.create_date}</td>
+									<tr style="cursor: pointer;" onclick="location.href='${context}/board?no=${board.boardId}'">
+										<td>${board.createDate.toLocalDate()}</td>
 										<td>${board.title}</td>
 										<td></td>
 										<td></td>
@@ -95,5 +96,6 @@
 			</div>
 		</div>
     </main>
+	<jsp:include page="common/footer.jsp"/>
 </body>
 </html>

@@ -9,11 +9,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="${context}/common/css/mypage.css" rel="stylesheet" media="all">
+<link href="${context}/resources/css/mypage.css" rel="stylesheet" media="all">
 
 <title>마이페이지</title>
 </head>
 <body>
+<jsp:include page="common/header.jsp"/>
 	<main id="contents_myPage">
 		<%@ include file="my_page_side.jsp" %>
 		<div id="main">
@@ -23,8 +24,8 @@
 					<table class="my_page">
 						<tr><th>작성일</th><th>제목</th><th>조회수</th><th>추천수</th></tr>
 						<c:forEach var="board" items="${board}">
-							<tr style="cursor: pointer;" onclick="location.href='${context}/board.do?no=${board.board_id}'">
-								<td>${board.create_date}</td>
+							<tr style="cursor: pointer;" onclick="location.href='${context}/board?no=${board.boardId}'">
+								<td>${board.createDate.toLocalDate()}</td>
 								<td>${board.title}</td>
 								<td></td>
 								<td></td>
@@ -35,7 +36,7 @@
 			</div>
 		</div>
     </main>
-
-	<script type="text/javascript" src="${context}/common/js/join.js"></script>
+	<jsp:include page="common/footer.jsp"/>
+	<script type="text/javascript" src="${context}/resources/js/join.js"></script>
 </body>
 </html>

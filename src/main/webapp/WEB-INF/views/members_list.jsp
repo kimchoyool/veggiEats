@@ -27,6 +27,7 @@
 </style>
 </head>
 <body>
+<jsp:include page="common/header.jsp"/>
 	<div id="list">
 		<h3>회원 리스트</h3>
 		<table>
@@ -43,5 +44,6 @@
 			</c:forEach>
 		</table>
 	</div>
+<jsp:include page="common/footer.jsp"/>
 </body>
 </html>

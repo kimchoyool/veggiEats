@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -12,12 +13,14 @@ import javax.persistence.Id;
 @Getter
 public class BoardImageEntity {
     @Id
-    private Long board_id;
-    private String image_file;
+    @Column(name = "board_id")
+    private Long boardId;
+    @Column(name = "image_file")
+    private String imageFile;
 
     @Builder
-    public BoardImageEntity(Long board_id, String image_file){
-        this.board_id = board_id;
-        this.image_file = image_file;
+    public BoardImageEntity(Long boardId, String imageFile){
+        this.boardId = boardId;
+        this.imageFile = imageFile;
     }
 }

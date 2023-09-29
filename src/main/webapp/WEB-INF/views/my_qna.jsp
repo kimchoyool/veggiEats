@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<c:set var="context" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="http://localhost:8080/VeggiEats/common/css/mypage.css" rel="stylesheet" media="all">
+<link href="${context}/resources/css/mypage.css" rel="stylesheet" media="all">
 
 <title>마이페이지</title>
 </head>
 <body>
+<jsp:include page="common/header.jsp"/>
 	<main id="contents_myPage">
 		<%@ include file="my_page_side.jsp" %>
 		<div id="main">
@@ -29,6 +31,7 @@
 	
 		</div>
     </main>
-	<script type="text/javascript" src="http://localhost:8080/VeggiEats/common/js/join.js"></script>
+<jsp:include page="common/footer.jsp"/>
+	<script type="text/javascript" src="${context}/resources/js/join.js"></script>
 </body>
 </html>

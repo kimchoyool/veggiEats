@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -36,9 +37,9 @@ public class MemberController {
             memberDTO.setBirthday(memberDTO.getYyyy()+memberDTO.getMM()+memberDTO.getDd());
         }
         MemberEntity memberEntity = MemberEntity.builder()
-                .member_id(memberDTO.getMember_id())
-                .member_password(memberDTO.getMember_password())
-                .member_name(memberDTO.getMember_name())
+                .memberId(memberDTO.getMember_id())
+                .memberPassword(memberDTO.getMember_password())
+                .memberName(memberDTO.getMember_name())
                 .nickname(memberDTO.getNickname())
                 .email(memberDTO.getEmail())
                 .birthday(memberDTO.getBirthday())
@@ -61,8 +62,10 @@ public class MemberController {
     public String getLogin(){
         return "/login";
     }
+
+    //@RequestBody
     @PostMapping(value = "/login")
-    public String postLogin(@RequestBody MemberDTO memberDTO, Model model, HttpSession session) throws IllegalAccessException {
+    public String postLogin(MemberDTO memberDTO, Model model, HttpSession session) throws IllegalAccessException {
 
         if(memberDTO.getMember_id() == null || memberDTO.getMember_password() == null){
             throw new IllegalAccessException("아이디와 비밀번호는 반드시 입력해야 합니다.");
@@ -73,7 +76,7 @@ public class MemberController {
             return "/members_list";
         }
         //아이디랑 비밀번호 둘 다 일치 하는게 있는지 확인하고 세션에 아이디 저장하기
-        if(memberRepository.findByMember_idAndMember_password(memberDTO.getMember_id(), memberDTO.getMember_password())){
+        if(memberRepository.findByMemberIdAndMemberPassword(memberDTO.getMember_id(), memberDTO.getMember_password()) != null){
             session.setAttribute("ID", memberDTO.getMember_id());
             return "/main";
         }else{
@@ -91,7 +94,7 @@ public class MemberController {
     @GetMapping(value = "/mypage")
     public String getMypapes(HttpSession session, Model model){
         String ID = (String) session.getAttribute("ID");
-        model.addAttribute("board", boardRepository.findAllByMember_id(ID));
+        model.addAttribute("board", boardRepository.findAllByMemberId(ID));
         //예약도 추가해야함
         return "/my_page";
     }
@@ -115,11 +118,11 @@ public class MemberController {
     @GetMapping(value = "/myBoard")
     public String getMyBoard(HttpSession session, Model model){
         String ID = (String) session.getAttribute("ID");
-        model.addAttribute("board", boardRepository.findAllByMember_id(ID));
+        model.addAttribute("board", boardRepository.findAllByMemberId(ID));
         return "/my_recipe";
     }
 
-    @GetMapping(value = "/update/pw")
+    @GetMapping(value = "/updatePw")
     public String getUpdatePw(HttpSession session, Model model){
         String ID = (String) session.getAttribute("ID");
         if(ID != null){
@@ -129,43 +132,40 @@ public class MemberController {
     }
 
     @Transactional
-    @PostMapping(value = "/update/pw")
+    @PostMapping(value = "/updatePw")
     public String postUpdatePw(Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
         String ID = (String) session.getAttribute("ID");
         MemberEntity member = memberRepository.findById(ID).get();
         //수정되는지 확인하기
         member.builder()
-                .member_password(request.getParameter("new_pw"))
+                .memberPassword(request.getParameter("new_pw"))
                 .build();
         model.addAttribute("user",member);
-        return "my_information";
+        return "redirect:myinfo";
     }
 
-    @GetMapping(value = "/update/nickname")
+    @GetMapping(value = "/updateNickname")
     public String getUpdateNickname(HttpSession session, Model model){
         String ID = (String) session.getAttribute("ID");
         if(ID != null){
             model.addAttribute("user",memberRepository.findById(ID));
         }
-        return "/popup/nName_update"; //redirect:?
+        return "/popup/nName_update";
     }
 
     @Transactional
-    @PostMapping(value = "/update/nickname")
+    @PostMapping(value = "/updateNickname")
     public String postUpdateNickname(Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
         String ID = (String) session.getAttribute("ID");
-        MemberEntity member = memberRepository.findById(ID).get();
-        //수정되는지 확인하기
-        member.builder()
-                .nickname(request.getParameter("new_n_name"))
-                .build();
-        model.addAttribute("user",member);
-        return "my_information";
+        MemberEntity member = memberRepository.findById(ID)
+                .orElseThrow(IllegalArgumentException::new);
+        member.setNickname(request.getParameter("new_n_name"));
+        return "redirect:myinfo";
     }
 
-    @GetMapping(value = "/update/email")
+    @GetMapping(value = "/updateEmail")
     public String getUpdateEmail(HttpSession session, Model model){
         String ID = (String) session.getAttribute("ID");
         if(ID != null){
@@ -174,7 +174,7 @@ public class MemberController {
         return "/popup/email_update"; //redirect:?
     }
     @Transactional
-    @PostMapping(value = "/update/email")
+    @PostMapping(value = "/updateEmail")
     public String postUpdateEmail(Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
         String ID = (String) session.getAttribute("ID");
@@ -184,16 +184,16 @@ public class MemberController {
                 .email(request.getParameter("new_email"))
                 .build();
         model.addAttribute("user",member);
-        return "my_information";
+        return "redirect:myinfo";
     }
 
     @PostMapping(value = "/delete")
     public String postDelete(@RequestBody MemberDTO memberDTO, HttpSession session){
         session.invalidate();
         MemberEntity member = MemberEntity.builder()
-                .member_id(memberDTO.getMember_id())
-                .member_password(memberDTO.getMember_password())
-                .member_name(memberDTO.getMember_name())
+                .memberId(memberDTO.getMember_id())
+                .memberPassword(memberDTO.getMember_password())
+                .memberName(memberDTO.getMember_name())
                 .nickname(memberDTO.getNickname())
                 .email(memberDTO.getEmail())
                 .birthday(memberDTO.getBirthday())

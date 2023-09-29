@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <c:set var="context" value="${pageContext.request.contextPath}" />
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +21,7 @@
 </style>
 </head> 
 <body>
+<jsp:include page="common/header.jsp"/>
 	<main>
 		<p>예약 완료되었습니다.</p>
 
@@ -34,5 +34,6 @@
 			</tr>
 		</table>
 	</main>
+<jsp:include page="common/footer.jsp"/>
 </body>
 </html>

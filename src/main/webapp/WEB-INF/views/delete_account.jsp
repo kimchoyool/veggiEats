@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="common/header.jsp"/>
 	<h3>회원 탈퇴 되었습니다.</h3>
+<jsp:include page="common/footer.jsp"/>
 </body>
 </html>
