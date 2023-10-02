@@ -40,7 +40,7 @@
 <body>
 	<main>
 		<h3>이메일 변경</h3>
-		<form action="${context}/updateEmail" name="email_update" method="post">
+		<form action="${context}/updateInfo" name="email_update" method="post">
 		<!--<input type="hidden" name="cmd" value="update">-->
 			현재 이메일: <input type="text" name="email" value="${user.get().email}" required>
 			<br><br>

@@ -56,7 +56,7 @@
 	<main>
 		<h3>비밀번호 변경</h3>
 		<!-- action="부모창.jsp" http://localhost:8080/VeggiEats/Veggieats -->
-		<form action="${context}/updatePw" name="pw_update" method="post">
+		<form action="${context}/updateInfo" name="pw_update" method="post">
 		<!--<input type="hidden" name="cmd" value="update">-->
 			<input type="text" name="pw" placeholder="현재 비밀번호">
 			<br><br>

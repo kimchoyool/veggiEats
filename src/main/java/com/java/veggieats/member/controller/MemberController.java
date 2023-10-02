@@ -131,19 +131,25 @@ public class MemberController {
         return "/popup/pw_update";
     }
 
+    //api 하나로 구현 되는지 확인하고 적용하기
     @Transactional
-    @PostMapping(value = "/updatePw")
-    public String postUpdatePw(Model model, HttpServletRequest request){
+    @PostMapping(value = "/updateInfo")
+    public String postUpdateInfo(HttpServletRequest request){
         HttpSession session = request.getSession();
         String ID = (String) session.getAttribute("ID");
-        MemberEntity member = memberRepository.findById(ID).get();
-        //수정되는지 확인하기
-        member.builder()
-                .memberPassword(request.getParameter("new_pw"))
-                .build();
-        model.addAttribute("user",member);
+        MemberEntity member = memberRepository.findById(ID)
+                .orElseThrow(IllegalArgumentException::new);
+        if(request.getParameter("new_pw") != null){
+            member.setMemberPassword(request.getParameter("new_pw"));
+        } else if (request.getParameter("new_n_name") != null) {
+            member.setNickname(request.getParameter("new_n_name"));
+        } else if (request.getParameter("new_email") != null) {
+           member.setEmail(request.getParameter("new_email")); 
+        }
+
         return "redirect:myinfo";
     }
+
 
     @GetMapping(value = "/updateNickname")
     public String getUpdateNickname(HttpSession session, Model model){
@@ -154,16 +160,6 @@ public class MemberController {
         return "/popup/nName_update";
     }
 
-    @Transactional
-    @PostMapping(value = "/updateNickname")
-    public String postUpdateNickname(Model model, HttpServletRequest request){
-        HttpSession session = request.getSession();
-        String ID = (String) session.getAttribute("ID");
-        MemberEntity member = memberRepository.findById(ID)
-                .orElseThrow(IllegalArgumentException::new);
-        member.setNickname(request.getParameter("new_n_name"));
-        return "redirect:myinfo";
-    }
 
     @GetMapping(value = "/updateEmail")
     public String getUpdateEmail(HttpSession session, Model model){
@@ -171,34 +167,16 @@ public class MemberController {
         if(ID != null){
             model.addAttribute("user",memberRepository.findById(ID));
         }
-        return "/popup/email_update"; //redirect:?
-    }
-    @Transactional
-    @PostMapping(value = "/updateEmail")
-    public String postUpdateEmail(Model model, HttpServletRequest request){
-        HttpSession session = request.getSession();
-        String ID = (String) session.getAttribute("ID");
-        MemberEntity member = memberRepository.findById(ID).get();
-        //수정되는지 확인하기
-        member.builder()
-                .email(request.getParameter("new_email"))
-                .build();
-        model.addAttribute("user",member);
-        return "redirect:myinfo";
+        return "/popup/email_update";
     }
 
-    @PostMapping(value = "/delete")
-    public String postDelete(@RequestBody MemberDTO memberDTO, HttpSession session){
-        session.invalidate();
-        MemberEntity member = MemberEntity.builder()
-                .memberId(memberDTO.getMember_id())
-                .memberPassword(memberDTO.getMember_password())
-                .memberName(memberDTO.getMember_name())
-                .nickname(memberDTO.getNickname())
-                .email(memberDTO.getEmail())
-                .birthday(memberDTO.getBirthday())
-                .build();
+    @GetMapping(value = "/delete")
+    public String postDelete(HttpSession session){
+        String ID = (String) session.getAttribute("ID");
+        MemberEntity member = memberRepository.findById(ID)
+                .orElseThrow(IllegalArgumentException::new);
         memberRepository.delete(member);
+        session.invalidate();
         return "delete_account";
     }
 }

@@ -31,7 +31,7 @@
 <body>
 	<main>
 		<h3>닉네임 변경</h3>
-		<form action="${context}/updateNickname" name="nName_update" method="post">
+		<form action="${context}/updateInfo" name="nName_update" method="post">
 		<!-- <input type="hidden" name="cmd" value="update"> -->
 			현재 닉네임: <input type="text" name="n_name" value="${user.get().nickname}" required>
 			<br><br>
