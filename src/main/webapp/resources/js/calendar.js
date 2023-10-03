@@ -110,20 +110,41 @@ function calendar(){
 	        select_td[bin+i-1].style.color='white';
 	        
 	    }else{
-	    	if(select_td[bin+i-1].classList=='today'){
-	    		select_td[bin+i-1].classList.remove('today');
-	    		select_td[bin+i-1].style.background='';
-		        select_td[bin+i-1].style.color='';
-	    	}
+            console.log(select_td[bin+i-1]);
+            console.log(select_td);
+            console.log(bin+i-1);
+            if(bin+i-1>0){
+                if(select_td[bin+i-1].classList=='today'){
+                    select_td[bin+i-1].classList.remove('today');
+                    select_td[bin+i-1].style.background='';
+                    select_td[bin+i-1].style.color='';
+                }
+            }else if(select_td[bin+i].classList=='today'){
+                select_td[bin+i].classList.remove('today');
+                select_td[bin+i].style.background='';
+                select_td[bin+i].style.color='';
+            }
 	    }
 	    //해당 월 이전 날짜 클래스 부여해서 css처리함
 	    if(year==now.getFullYear() && month==now.getMonth() && i<day){
-	    	select_td[bin+i-1].className='prevday';
+            if(bin+i-1>0){
+                select_td[bin+i-1].className='prevday';
+            }else{
+                select_td[bin+i].className='prevday';
+            }
+
 		}else{
 			//이전날짜가 아닌데 클래스 이름이 prevday면 remove하기
-			if(select_td[bin+i-1].classList=='prevday'){
-				select_td[bin+i-1].classList.remove('prevday');
-			}
+            if(bin+i-1>0){
+                if(select_td[bin+i-1].classList=='prevday'){
+                    select_td[bin+i-1].classList.remove('prevday');
+                }
+            }else{
+                if(select_td[bin+i].classList=='prevday'){
+                    select_td[bin+i].classList.remove('prevday');
+                }
+            }
+
 		}
 	}
     
@@ -190,16 +211,16 @@ let prev_img = document.getElementById('prev_img');
 let next_img = document.getElementById('next_img');
 //console.log(prev_img);
 function prev_mouseover(){
-    prev_img.setAttribute('src','../common/img/caret-left-fill.svg');
+    prev_img.setAttribute('src','../resources/img/caret-left-fill.svg');
 }
 function prev_mouseleave(){
-    prev_img.setAttribute('src','../common/img/caret-left.svg');
+    prev_img.setAttribute('src','../resources/img/caret-left.svg');
 }
 function next_mouseover(){
-    next_img.setAttribute('src','../common/img/caret-right-fill.svg');
+    next_img.setAttribute('src','../resources/img/caret-right-fill.svg');
 }
 function next_mouseleave(){
-    next_img.setAttribute('src','../common/img/caret-right.svg');
+    next_img.setAttribute('src','../resources/img/caret-right.svg');
 }
 
 //달력 버튼 누르면 변경
@@ -299,9 +320,9 @@ function change_person(){
 let heart = document.getElementById('heart');
 heart.addEventListener('click',function(){
     if(heart.src.indexOf('heart_solid.png')===-1){
-        heart.setAttribute('src','../common/img/heart_solid.png');
+        heart.setAttribute('src','../resources/img/heart_solid.png');
     }else{
-        heart.setAttribute('src','../common/img/heart.png');
+        heart.setAttribute('src','../resources/img/heart.png');
     }
 });
 

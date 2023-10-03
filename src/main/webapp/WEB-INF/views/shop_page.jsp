@@ -8,7 +8,6 @@
 <head>
 <meta charset="UTF-8">
 <link href="${context}/resources/css/detailed.css" rel="stylesheet" media="all">
-
 <title>상세페이지</title>
 <link rel="stylesheet" href="${context}/resources/css/bootstrap.min.css">
 </head> 

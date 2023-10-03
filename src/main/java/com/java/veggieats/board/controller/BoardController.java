@@ -57,7 +57,7 @@ public class BoardController {
                 .title(board.getTitle())
                 .build();
         BoardEntity entity = boardRepository.save(boardEntity);
-
+        
         //파일 업로드
         MultipartFile uploadFile = board.getUploadFile();
         if(!uploadFile.isEmpty()){
@@ -67,6 +67,7 @@ public class BoardController {
                     .boardId(entity.getBoardId())
                     .imageFile(targetPath.toString())
                     .build();
+            //이미지 저장은 어떻게..? 걍되는건가 확인해보기
         }
 
         return"redirect:boardList";
