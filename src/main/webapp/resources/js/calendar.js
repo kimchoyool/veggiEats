@@ -307,11 +307,13 @@ for(let td of select_td){
 //인원 선택시 총 예약인원, 예약금액 변경
 let person_select = document.getElementById('person_select');
 let p_amount = document.getElementById('p_amount');
-let deposit = document.getElementById('deposit');
+let amount = document.getElementById('amount');
 let total_amount = document.getElementById('total_amount');
+let deposit = document.getElementById('deposit');
 function change_person(){
     p_amount.innerHTML=person_select.options[person_select.selectedIndex].value;
-    total_amount.innerHTML=(person_select.options[person_select.selectedIndex].value * parseInt(deposit.innerText.replace(/,/g,''))).toLocaleString('ko-KR') ;
+    total_amount.innerHTML=(person_select.options[person_select.selectedIndex].value * parseInt(amount.innerText.replace(/,/g,''))).toLocaleString('ko-KR') ;
+    deposit.value = total_amount.innerText;
 }
 //$('input[type=date]').val(year+'-'+(month+1)+'-'+v);
 

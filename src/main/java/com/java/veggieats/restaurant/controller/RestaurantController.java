@@ -27,18 +27,18 @@ public class RestaurantController {
     }
 
     @PostMapping(value = "/reservation")
-    public String postReservation(HttpSession session, Model model){
+    public String postReservation(HttpServletRequest request, HttpSession session, Model model){
         ReservationEntity reservation = ReservationEntity.builder()
-                .reservationNo(LocalDate.now().toString()+LocalTime.now().toString())
+                .reservationNo(LocalDate.now().toString().replace("-","")+LocalTime.now().toString().substring(0,7))
                 .memberId((String) session.getAttribute("ID"))
                 .restaurantId("veggieats") //임시식당정보
-                .reservationDate(LocalDate.now())
-                .reservationTime(LocalTime.now())
+                .reservationDate(LocalDate.parse(request.getParameter("Reservation_date")))
+                .reservationTime(request.getParameter("Reservation_time"))
+                .people(Integer.parseInt(request.getParameter("people")))
+                .deposit(Integer.parseInt(request.getParameter("deposit").replace(",","")))
                 .build();
-        System.out.println(reservation);
-        //출력되는거보고 저장하기
-        //ReservationEntity reservationEntity = reservationRepository.save(reservation);
-        //model.addAttribute("reservation", reservationEntity);
+        ReservationEntity reservationEntity = reservationRepository.save(reservation);
+        model.addAttribute("reservation", reservationEntity);
         return "reservation_check";
     }
 

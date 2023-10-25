@@ -127,12 +127,13 @@
 				<input type="text" name="Reservation_date" id="select_date" readonly>
 				
 				<p>
-					1인당 예약금: <span id="deposit">10,000</span>원</p>
+					1인당 예약금: <span id="amount">10,000</span>원</p>
 				<p>x 총 예약 인원: <span id="p_amount">1</span>명
 				</p>
 			</div>
 			<div id="total_price">
 				<p><br>총 예약금 <span id="total_amount">10,000</span>원</p><br>
+				<input type="hidden" name="deposit" id="deposit">
 			</div>
 			<div id="reservation_button">
 				<button type="submit">예약하기</button>

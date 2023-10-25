@@ -28,8 +28,8 @@
 		<table>
 			<tr><th>날짜</th><th>시간</th><th>인원</th></tr>
 			<tr>
-				<td>${reservation.reservation_date}</td>
-				<td>${reservation.reservation_time}</td>
+				<td>${reservation.reservationDate}</td>
+				<td>${reservation.reservationTime}</td>
 				<td>${reservation.people}</td>
 			</tr>
 		</table>

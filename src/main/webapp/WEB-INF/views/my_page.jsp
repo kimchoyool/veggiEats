@@ -30,9 +30,9 @@
 						<c:choose>
 							<c:when test="${fn:length(reservation) > 5 }">
 								<c:forEach var="reservation" items="${reservation}" begin="0" end="4">
-									<tr style="cursor: pointer;" onclick="location.href='${context}/reservationInfo?no=${reservation.r_no}'">
-										<td>${reservation.reservation_date}</td>
-										<td>${reservation.restaurantNameVO.r_name}</td>
+									<tr style="cursor: pointer;" onclick="location.href='${context}/reservationInfo?no=${reservation.reservationNo}'">
+										<td>${reservation.reservationDate}</td>
+										<td><!-- ${reservation.restaurantNameVO.r_name} --></td>
 										<td>${reservation.people}</td>
 										<td>${reservation.state}</td>
 									</tr>
@@ -40,9 +40,9 @@
 							</c:when>
 							<c:otherwise>
 								<c:forEach var="reservation" items="${reservation}">
-									<tr style="cursor: pointer;" onclick="location.href='${context}/reservationInfo?no=${reservation.r_no}'">
-										<td>${reservation.reservation_date}</td>
-										<td>${reservation.restaurantNameVO.r_name}</td>
+									<tr style="cursor: pointer;" onclick="location.href='${context}/reservationInfo?no=${reservation.reservationNo}'">
+										<td>${reservation.reservationDate}</td>
+										<td><!-- {reservation.restaurantNameVO.r_name} --></td>
 										<td>${reservation.people}</td>
 										<td>${reservation.state}</td>
 									</tr>

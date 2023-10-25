@@ -27,7 +27,7 @@ public class ReservationEntity {
     @Column(name = "reservation_date")
     private LocalDate reservationDate;
     @Column(name = "reservation_time")
-    private LocalTime reservationTime;
+    private String reservationTime;
     private int people;
     private int deposit;
     @Setter
@@ -35,7 +35,7 @@ public class ReservationEntity {
 
     @Builder
     public ReservationEntity(String reservationNo, String memberId, String restaurantId,
-                             LocalDate reservationDate, LocalTime reservationTime,
+                             LocalDate reservationDate, String reservationTime,
                              int people, int deposit, String state){
         this.reservationNo = reservationNo;
         this.memberId = memberId;

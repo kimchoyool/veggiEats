@@ -5,6 +5,7 @@ import com.java.veggieats.board.repository.BoardRepository;
 import com.java.veggieats.member.dto.MemberDTO;
 import com.java.veggieats.member.entity.MemberEntity;
 import com.java.veggieats.member.repository.MemberRepository;
+import com.java.veggieats.restaurant.repository.ReservationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +26,7 @@ import java.util.Optional;
 public class MemberController {
     private final MemberRepository memberRepository;
     private final BoardRepository boardRepository;
+    private final ReservationRepository reservationRepository;
 
 
     @GetMapping(value = "/join")
@@ -95,7 +97,8 @@ public class MemberController {
     public String getMypapes(HttpSession session, Model model){
         String ID = (String) session.getAttribute("ID");
         model.addAttribute("board", boardRepository.findAllByMemberId(ID));
-        //예약도 추가해야함
+        model.addAttribute("reservation", reservationRepository.findAllByMemberId(ID));
+        //후기 추가해야함
         return "/my_page";
     }
 
