@@ -97,7 +97,7 @@ public class MemberController {
     public String getMypapes(HttpSession session, Model model){
         String ID = (String) session.getAttribute("ID");
         model.addAttribute("board", boardRepository.findAllByMemberId(ID));
-        model.addAttribute("reservation", reservationRepository.findAllByMemberId(ID));
+        model.addAttribute("reservation", reservationRepository.findReservation(ID));
         //후기 추가해야함
         return "/my_page";
     }

@@ -32,7 +32,7 @@
 								<c:forEach var="reservation" items="${reservation}" begin="0" end="4">
 									<tr style="cursor: pointer;" onclick="location.href='${context}/reservationInfo?no=${reservation.reservationNo}'">
 										<td>${reservation.reservationDate}</td>
-										<td><!-- ${reservation.restaurantNameVO.r_name} --></td>
+										<td>${reservation.restaurantName}</td>
 										<td>${reservation.people}</td>
 										<td>${reservation.state}</td>
 									</tr>
@@ -42,7 +42,7 @@
 								<c:forEach var="reservation" items="${reservation}">
 									<tr style="cursor: pointer;" onclick="location.href='${context}/reservationInfo?no=${reservation.reservationNo}'">
 										<td>${reservation.reservationDate}</td>
-										<td><!-- {reservation.restaurantNameVO.r_name} --></td>
+										<td>${reservation.restaurantName}</td>
 										<td>${reservation.people}</td>
 										<td>${reservation.state}</td>
 									</tr>

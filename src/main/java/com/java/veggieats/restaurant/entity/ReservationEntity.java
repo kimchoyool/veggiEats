@@ -6,11 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 @NoArgsConstructor
 @Entity(name = "reservation")
@@ -22,8 +19,8 @@ public class ReservationEntity {
     private String reservationNo;
     @Column(name = "member_id")
     private String memberId;
-    @Column(name = "restaurant_id")
-    private String restaurantId;
+    //@Column(name = "restaurant_id") 원투원이랑 겹쳐서 주석처리,,
+    //private String restaurantId;
     @Column(name = "reservation_date")
     private LocalDate reservationDate;
     @Column(name = "reservation_time")
@@ -33,18 +30,24 @@ public class ReservationEntity {
     @Setter
     private String state;
 
+    @OneToOne
+    @JoinColumn(name = "restaurant_id")
+    private RestaurantEntity restaurant;
+
+
     @Builder
     public ReservationEntity(String reservationNo, String memberId, String restaurantId,
                              LocalDate reservationDate, String reservationTime,
-                             int people, int deposit, String state){
+                             int people, int deposit, String state, RestaurantEntity restaurant){
         this.reservationNo = reservationNo;
         this.memberId = memberId;
-        this.restaurantId = restaurantId;
+        //this.restaurantId = restaurantId;
         this.reservationDate = reservationDate;
         this.reservationTime = reservationTime;
         this.people = people;
         this.deposit = deposit;
         this.state = state;
+        this.restaurant = restaurant;
     }
 
 }
