@@ -19,8 +19,8 @@ public class ReservationEntity {
     private String reservationNo;
     @Column(name = "member_id")
     private String memberId;
-    //@Column(name = "restaurant_id") 원투원이랑 겹쳐서 주석처리,,
-    //private String restaurantId;
+    @Column(name = "restaurant_id") //원투원이랑 겹쳐서 주석처리,,
+    private String restaurantId;
     @Column(name = "reservation_date")
     private LocalDate reservationDate;
     @Column(name = "reservation_time")
@@ -31,7 +31,7 @@ public class ReservationEntity {
     private String state;
 
     @OneToOne
-    @JoinColumn(name = "restaurant_id")
+    @JoinColumn//(name = "restaurant_id")
     private RestaurantEntity restaurant;
 
 
@@ -41,7 +41,7 @@ public class ReservationEntity {
                              int people, int deposit, String state, RestaurantEntity restaurant){
         this.reservationNo = reservationNo;
         this.memberId = memberId;
-        //this.restaurantId = restaurantId;
+        this.restaurantId = restaurantId;
         this.reservationDate = reservationDate;
         this.reservationTime = reservationTime;
         this.people = people;
